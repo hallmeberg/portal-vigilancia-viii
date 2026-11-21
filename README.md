@@ -6,4 +6,6 @@ Acesse: https://hallmeberg.github.io/portal-vigilancia-viii/
 
 Para atualizar o conteúdo, edite os blocos marcados com `EDITE AQUI` no `index.html` (painéis, alertas, normas, calendário e links).
 
+Documentação completa e histórico de alterações: [DOCUMENTACAO.md](DOCUMENTACAO.md)
+
 Contato: vigilanciasaude8geres@gmail.com · (87) 3866-6557
