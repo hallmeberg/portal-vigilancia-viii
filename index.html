@@ -202,7 +202,7 @@ footer p{margin:0;font-size:14px}
 </div></nav>
 
 <section class="band" id="paineis"><div class="wrap">
-  <div class="head"><div><h2>Painéis de monitoramento</h2><p>Dados da VIII Região de Saúde e painéis oficiais. Clique em <b>Acesse aqui</b> para abrir em uma nova aba.</p></div></div>
+  <div class="head"><div><h2>Painéis de monitoramento</h2><p>Dados da VIII Região de Saúde e painéis oficiais. Clique em <b>Acesse aqui</b> para abrir o painel nesta mesma aba. Para voltar ao portal, use a seta <b>← Voltar</b> do navegador.</p></div></div>
   <div class="tools" role="group" aria-label="Filtrar por coordenação">
     <div id="chips" style="display:contents"></div>
     <label class="search"><span style="position:absolute;left:-9999px">Buscar painel</span><input id="q" type="search" placeholder="Buscar painel…" autocomplete="off"></label>
@@ -216,8 +216,8 @@ footer p{margin:0;font-size:14px}
   <div class="notif">
     <div><b>Identificou um evento de saúde pública?</b><span>Notifique imediatamente ao CIEVS Pernambuco e informe a Vigilância da VIII GERES.</span></div>
     <div style="display:flex;gap:10px;flex-wrap:wrap">
-      <a class="btn" href="https://portalcievs.saude.pe.gov.br/notifique/formulario-dinamico" target="_blank" rel="noopener">Notifique aqui <span aria-hidden="true">→</span></a>
-      <a class="btn alt" href="https://portalcievs.saude.pe.gov.br/" target="_blank" rel="noopener">Portal CIEVS-PE</a>
+      <a class="btn" href="https://portalcievs.saude.pe.gov.br/notifique/formulario-dinamico">Notifique aqui <span aria-hidden="true">→</span></a>
+      <a class="btn alt" href="https://portalcievs.saude.pe.gov.br/">Portal CIEVS-PE</a>
     </div>
   </div>
   <p class="src">Fonte: portal CIEVS-PE, consultado em 20/11/2026.</p>
@@ -355,7 +355,7 @@ const esc=s=>String(s).replace(/[&<>"]/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;"
 const $=id=>document.getElementById(id);
 const toast=$("toast");let tt;
 const say=m=>{toast.textContent=m;toast.classList.add("show");clearTimeout(tt);tt=setTimeout(()=>toast.classList.remove("show"),2600)};
-const go=(url,label)=>url?`<a class="btn" href="${esc(url)}" target="_blank" rel="noopener">${label||"Acesse aqui"} <span aria-hidden="true">→</span></a>`:`<button class="btn" type="button" data-nolink>${label||"Acesse aqui"} <span aria-hidden="true">→</span></button>`;
+const go=(url,label)=>url?`<a class="btn" href="${esc(url)}">${label||"Acesse aqui"} <span aria-hidden="true">→</span></a>`:`<button class="btn" type="button" data-nolink>${label||"Acesse aqui"} <span aria-hidden="true">→</span></button>`;
 const dBR=s=>{const [y,m,d]=s.split("-");return `${d}/${m}/${y}`};
 const dBox=s=>{const [y,m,d]=s.split("-");return `<div class="date">${d}<small>${MES[+m-1]} ${y}</small></div>`};
 const vale=(x,m)=>x.mun==="Todos"||(Array.isArray(x.mun)&&x.mun.includes(m));
@@ -388,7 +388,7 @@ const al=[...ALERTAS].sort((a,b)=>b.dt.localeCompare(a.dt));
 $("alList").innerHTML=al.map(a=>{const co=COORD[a.c];return `<div class="doc">${dBox(a.dt)}
   <div><div class="t">${esc(a.t)}</div><div class="m"><span class="pill" style="background:${co.cor}">${esc(a.tipo)}</span><span>${esc(a.fonte)}</span><span>· ${esc(munTxt(a))}</span></div></div>
   ${go(a.url)}</div>`}).join("");
-$("agList").innerHTML=INFORMES.map(([n,s])=>`<a href="https://portalcievs.saude.pe.gov.br/noticias/INFORMES/${s}" target="_blank" rel="noopener">${esc(n)}</a>`).join("")+`<a href="https://portalcievs.saude.pe.gov.br/informes_epidemiologicos" target="_blank" rel="noopener">Ver todos ↗</a>`;
+$("agList").innerHTML=INFORMES.map(([n,s])=>`<a href="https://portalcievs.saude.pe.gov.br/noticias/INFORMES/${s}">${esc(n)}</a>`).join("")+`<a href="https://portalcievs.saude.pe.gov.br/informes_epidemiologicos">Ver todos ↗</a>`;
 $("lawList").innerHTML=NORMAS.map(n=>`<div class="law"><div><div class="t">${esc(n.t)}</div><div class="m">${esc(n.m)}</div></div>${go(n.url)}</div>`).join("");
 
 const hoje=new Date();hoje.setHours(0,0,0,0);
@@ -408,8 +408,8 @@ function renderMun(){
   $("muns").innerHTML=MUNICIPIOS.map(m=>`<button class="chip" type="button" data-m="${esc(m)}" aria-pressed="${m===mun}">${esc(m)}</button>`).join("");
   const a=al.filter(x=>vale(x,mun));
   $("mT1").textContent=`Alertas que se aplicam (${a.length})`;
-  $("mA").innerHTML=a.slice(0,4).map(x=>`<div class="mi"><a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.t)}</a><small>${dBR(x.dt)} · ${esc(x.fonte)}</small></div>`).join("")+(a.length>4?`<div class="mi"><a href="#alertas">Ver todos os alertas</a></div>`:"");
-  $("mP").innerHTML=PAINEIS.filter(p=>p.st==="on"&&p.mun).map(p=>`<div class="mi"><a href="${esc(p.url)}" target="_blank" rel="noopener">${esc(p.t)}</a><small>Selecione ${esc(mun)} no filtro do painel</small></div>`).join("");
+  $("mA").innerHTML=a.slice(0,4).map(x=>`<div class="mi"><a href="${esc(x.url)}">${esc(x.t)}</a><small>${dBR(x.dt)} · ${esc(x.fonte)}</small></div>`).join("")+(a.length>4?`<div class="mi"><a href="#alertas">Ver todos os alertas</a></div>`:"");
+  $("mP").innerHTML=PAINEIS.filter(p=>p.st==="on"&&p.mun).map(p=>`<div class="mi"><a href="${esc(p.url)}">${esc(p.t)}</a><small>Selecione ${esc(mun)} no filtro do painel</small></div>`).join("");
   const e=ev.filter(x=>vale(x,mun));
   $("mE").innerHTML=e.length?e.map(x=>`<div class="mi">${esc(x.t)}<small>${dBR(x.dt)}${x.ex?" · data a confirmar":""}</small></div>`).join(""):'<div class="mi">Nenhum compromisso cadastrado.</div>';
 }
@@ -419,10 +419,10 @@ renderMun();
 const ph=(k,alt)=>FOTOS[k]?`<img class="ph" alt="${esc(alt)}" src="data:image/webp;base64,${FOTOS[k]}">`:"";
 $("boss").innerHTML=[["ana","Ana Célia de Almeida Carvalho","Gerente Regional de Saúde"],["kalliny","Kalliny Mirella","Coordenadora de Vigilância em Saúde"]].map(([k,n,c])=>`<div>${ph(k,"Foto de "+n)}<span style="display:block"><b>${esc(n)}</b><span>${esc(c)}</span></span></div>`).join("");
 $("five").innerHTML=Object.entries(COORD).map(([k,c])=>`<div class="co"><div class="h" style="background:${c.cor}">${ph(k,"Foto de "+c.resp)}<div><b>${esc(c.nome)}</b><span>${esc(c.resp)}</span></div></div><ul>${c.areas.map(a=>`<li>${esc(a)}</li>`).join("")}</ul></div>`).join("");
-$("linkList").innerHTML=LINKS.map(l=>`<a href="${esc(l.url)}" target="_blank" rel="noopener"><span>${esc(l.t)}<small>${esc(l.s)}</small></span><span aria-hidden="true">↗</span></a>`).join("");
+$("linkList").innerHTML=LINKS.map(l=>`<a href="${esc(l.url)}"><span>${esc(l.t)}<small>${esc(l.s)}</small></span><span aria-hidden="true">↗</span></a>`).join("");
 
 const sp=al.find(a=>a.destaque)||al[0];
-if(sp){$("spT").textContent=sp.t;$("spD").textContent=sp.d||"";$("spM").textContent=`${dBR(sp.dt)} · ${sp.fonte} · ${munTxt(sp)}`;if(sp.url){$("spB").href=sp.url;$("spB").target="_blank";$("spB").rel="noopener"}}
+if(sp){$("spT").textContent=sp.t;$("spD").textContent=sp.d||"";$("spM").textContent=`${dBR(sp.dt)} · ${sp.fonte} · ${munTxt(sp)}`;if(sp.url){$("spB").href=sp.url;}}
 $("nPain").textContent=PAINEIS.filter(p=>p.st==="on").length;
 $("nAl").textContent=ALERTAS.length;
 

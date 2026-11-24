@@ -6,7 +6,7 @@ Página inicial da Coordenação de Vigilância em Saúde da VIII GERES (SES-PE,
 - **Repositório:** https://github.com/hallmeberg/portal-vigilancia-viii
 - **Arquivo principal:** `index.html` (página única; logos e fotos embutidos no próprio arquivo)
 - **Cópia local:** `Desktop\Pagina de Apresentação V.S\Portal_Vigilancia_VIII_GERES.html`
-- **Última atualização:** 20/11/2026
+- **Última atualização:** 24/11/2026
 
 ---
 
@@ -15,7 +15,7 @@ Página inicial da Coordenação de Vigilância em Saúde da VIII GERES (SES-PE,
 | Seção | Conteúdo | Onde editar no `index.html` |
 |---|---|---|
 | Topo | Logos SES-PE / Governo de PE e VIII GERES, faixa arco-íris, título, números-resumo e **Alerta em destaque** | Destaque = alerta com `destaque:true` em `ALERTAS` |
-| Painéis | Cartões com botão **Acesse aqui**, filtro por coordenação e busca | `PAINEIS` |
+| Painéis | Cartões com botão **Acesse aqui** (abre na mesma aba), filtro por coordenação e busca | `PAINEIS` |
 | Alertas e orientações | Faixa "Notifique aqui" (CIEVS-PE), lista de alertas/notas e atalhos para informes do CIEVS por agravo | `ALERTAS`, `INFORMES` |
 | Portarias e normas | Normas de referência com link oficial | `NORMAS` |
 | Calendário | Semana epidemiológica atual (calculada automaticamente) e próximos compromissos | `EVENTOS` |
@@ -83,8 +83,13 @@ Depois de editar, envie o `index.html` para a branch `main` do repositório. O G
 - [ ] Trocar o link da Portaria SES-PE nº 660/2022 pelo link oficial do Diário Oficial de PE
 - [ ] Liberar os painéis de Sazonalidade dos Vírus Respiratórios e de Violência (VIVA) quando estiverem prontos
 - [ ] Manter públicos os links dos painéis no Claude (Situação de Saúde, ATT e Arboviroses)
+- [ ] Decidir se os painéis ATT e Arboviroses no Claude ganham um botão "← Voltar ao portal" (exige editar os painéis publicados)
 
 ## 6. Histórico de alterações
+
+### 24/11/2026
+- Todos os botões **Acesse aqui** (painéis, alertas, normas e links) passam a abrir **na mesma aba**, em vez de abrir uma aba nova. Para voltar ao portal, usa-se a seta ← do navegador; o texto da seção Painéis explica isso.
+- Avaliado e descartado: abrir os painéis dentro do próprio portal. Os painéis do Claude bloqueiam ser exibidos dentro de outro site (regra de segurança `frame-ancestors`). Copiar os painéis para o GitHub também foi descartado: o Painel de Arboviroses tem cerca de 1 MB com os dados embutidos, e o de Situação de Saúde é um painel do tipo "Data" do Claude, que não pode ser exportado como página.
 
 ### 20/11/2026
 - Criação do portal com identidade visual do Governo de PE, a partir do organograma da Vigilância em Saúde.
