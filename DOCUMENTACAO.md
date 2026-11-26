@@ -6,7 +6,7 @@ Página inicial da Coordenação de Vigilância em Saúde da VIII GERES (SES-PE,
 - **Repositório:** https://github.com/hallmeberg/portal-vigilancia-viii
 - **Arquivo principal:** `index.html` (página única; logos e fotos embutidos no próprio arquivo)
 - **Cópia local:** `Desktop\Pagina de Apresentação V.S\Portal_Vigilancia_VIII_GERES.html`
-- **Última atualização:** 24/11/2026 (20h)
+- **Última atualização:** 26/11/2026
 
 ---
 
@@ -82,9 +82,14 @@ Depois de editar, envie o `index.html` para a branch `main` do repositório. O G
 - [ ] Confirmar datas da reunião do GT Regional de Arboviroses (25/11) e da CIR (09/12)
 - [ ] Trocar o link da Portaria SES-PE nº 660/2022 pelo link oficial do Diário Oficial de PE
 - [ ] Liberar os painéis de Sazonalidade dos Vírus Respiratórios e de Violência (VIVA) quando estiverem prontos
-- [ ] Manter públicos os links dos painéis no Claude (Situação de Saúde, ATT e Arboviroses)
+- [ ] Manter públicos os links dos painéis no Claude (Situação de Saúde e ATT)
 
 ## 6. Histórico de alterações
+
+### 26/11/2026
+- **Painel de Arboviroses publicado no GitHub Pages**, na pasta `painel-arboviroses/` (https://hallmeberg.github.io/portal-vigilancia-viii/painel-arboviroses/). O cartão do portal passou a apontar para esse endereço, que é agora o **link oficial** do painel. Detalhes e rotina de atualização em [painel-arboviroses/LEIAME.md](painel-arboviroses/LEIAME.md).
+- No GitHub, o botão **Atualizar base de dados** aparece só com `?atualizar` no fim do endereço e gera o `index.html` atualizado, que é enviado à pasta `painel-arboviroses/` pelo próprio GitHub ("Add file → Upload files").
+- O painel ganhou o link **← Portal da Vigilância**, que só aparece quando aberto pelo GitHub Pages.
 
 ### 24/11/2026
 - Incluído o **Painel de Alerta Climático** (https://hallmeberg.github.io/painel-clima-viii.io/): calor, umidade do ar, chuva e ventos nos 7 municípios, avisos do INMET, previsão de 3 dias e mensagem para o grupo regional no WhatsApp. Classificado em Vigilância Ambiental e Saúde do Trabalhador · CIEVS Regional, atualização a cada 15 min, com dados por município.
