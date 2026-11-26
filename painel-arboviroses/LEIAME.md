@@ -22,13 +22,37 @@ Filtros: agravo, ano (início dos sintomas) e município de residência. As tabe
 
 ## Como atualizar (quinzenal ou mensal)
 
+A publicação é **automática**: o painel grava a versão nova direto no repositório, sem baixar nem enviar arquivos à mão.
+
 1. Exporte o **ano corrente** de dengue e chikungunya (Sinan Online, arquivos DENGON e CHIKON) e de zika (Sinan Net, DBF ou planilha Excel convertida), por **residência**, **Regional VIII**, com chave fonética e data de nascimento.
 2. Abra o endereço para atualizar (com `?atualizar`) e clique em **Atualizar base de dados**.
 3. Escolha os arquivos e clique em **Ler arquivos**. Confira os totais da VIII GERES (antes → depois).
-4. Clique em **Baixar index.html atualizado**.
-5. No GitHub, abra a pasta `painel-arboviroses` deste repositório, clique em **Add file → Upload files**, envie o `index.html` baixado e confirme em **Commit changes**. O site se atualiza em cerca de 1 minuto.
+4. Informe a **chave de acesso do GitHub** (só na primeira vez, se marcar "Lembrar neste computador") e clique em **Publicar atualização**.
+5. Em 1 a 2 minutos o link oficial mostra os dados novos. Recarregue a página.
 
-Os arquivos do Sinan são lidos só no computador de quem atualiza. O `index.html` gerado traz apenas contagens agregadas: nenhum nome, endereço, telefone ou Cartão SUS.
+O botão **Baixar index.html** continua no diálogo como reserva, para publicar à mão se o GitHub estiver fora do ar.
+
+Os arquivos do Sinan são lidos só no computador de quem atualiza. O que vai para o GitHub são apenas contagens agregadas: nenhum nome, endereço, telefone ou Cartão SUS.
+
+### Chave de acesso do GitHub (uma vez por pessoa)
+
+O GitHub só aceita gravar no repositório com uma chave da conta de quem tem permissão. Para criar:
+
+1. No GitHub, vá em **Settings → Developer settings → Personal access tokens → Fine-grained tokens → Generate new token**.
+2. **Repository access:** "Only select repositories" → `hallmeberg/portal-vigilancia-viii`.
+3. **Permissions → Repository permissions → Contents:** "Read and write". Nada mais.
+4. **Expiration:** até 1 ano. Quando vencer, o painel avisa e basta gerar outra.
+5. Copie a chave (começa com `github_pat_`) e cole no diálogo de atualização.
+
+Cuidados com a chave:
+- Não envie a chave por WhatsApp ou e-mail, e não a coloque em nenhum arquivo do repositório.
+- "Lembrar neste computador" guarda a chave no navegador. Use só em computador de uso pessoal; nos demais, deixe desmarcado (ela é apagada ao fechar o navegador).
+- Para outra pessoa atualizar: adicione a conta dela como colaboradora do repositório (**Settings → Collaborators**) e ela cria a própria chave.
+- Se a chave vazar, apague-a em **Personal access tokens** e gere outra.
+
+### Proteção contra sobrescrever dados
+
+O arquivo `versao.json` registra quando o painel foi publicado pela última vez. Antes de publicar, o painel confere esse arquivo: se outra pessoa publicou depois que a página foi aberta, ele bloqueia e pede para recarregar, para não apagar a atualização mais nova.
 
 ## Regras importantes
 
@@ -40,10 +64,15 @@ Os arquivos do Sinan são lidos só no computador de quem atualiza. O `index.htm
 ## Cuidados
 
 - O GitHub Pages é **público**: qualquer pessoa com o link vê o painel. Os dados são agregados, mas em municípios pequenos alguns recortes têm 1 ou 2 casos.
-- Quem abre o endereço com `?atualizar` consegue gerar um arquivo, mas só quem tem acesso ao repositório consegue publicá-lo.
+- Quem abre o endereço com `?atualizar` consegue ler arquivos e ver a conferência, mas só publica quem tem uma chave com permissão de escrita no repositório.
 - A versão no Claude não é mais atualizada; use sempre este endereço.
 
 ## Histórico
+
+### 26/11/2026 (tarde)
+- Publicação **automática** no GitHub: o botão "Publicar atualização" grava o `index.html` e o `versao.json` direto no repositório (API do GitHub), com a chave de acesso de quem atualiza. Antes, era preciso baixar o arquivo e enviá-lo à mão.
+- Conferência de versão (`versao.json`) para não sobrescrever uma atualização mais nova.
+- O download do `index.html` ficou como reserva.
 
 ### 26/11/2026
 - Publicação no GitHub Pages, com os dados da versão do Claude (notificações até 10/11/2026).
