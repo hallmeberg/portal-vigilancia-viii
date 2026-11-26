@@ -82,11 +82,13 @@ Depois de editar, envie o `index.html` para a branch `main` do repositório. O G
 - [ ] Confirmar datas da reunião do GT Regional de Arboviroses (25/11) e da CIR (09/12)
 - [ ] Trocar o link da Portaria SES-PE nº 660/2022 pelo link oficial do Diário Oficial de PE
 - [ ] Liberar os painéis de Sazonalidade dos Vírus Respiratórios e de Violência (VIVA) quando estiverem prontos
-- [ ] Manter públicos os links dos painéis no Claude (Situação de Saúde e ATT)
+- [ ] Manter público o link do painel no Claude (ATT)
 
 ## 6. Histórico de alterações
 
 ### 26/11/2026
+- **Painel de Situação de Saúde publicado no GitHub Pages**, na pasta `painel-situacao-saude/` (https://hallmeberg.github.io/portal-vigilancia-viii/painel-situacao-saude/). O cartão do portal passou a apontar para esse endereço, que é agora o **link oficial** do painel. Detalhes e rotina de atualização em [painel-situacao-saude/LEIAME.md](painel-situacao-saude/LEIAME.md).
+- Diferente do Painel de Arboviroses, este painel é do tipo "Dashboard" do Claude (dados em banco próprio da plataforma, não um arquivo exportável), então a cópia estática foi **reconstruída à mão**: mesmo HTML, mesmos cálculos e mesmos gráficos, porém com CSS e JavaScript próprios (sem os tokens de estilo e a API de dados exclusivos da plataforma do Claude) e com os dados agregados do dia embutidos no arquivo. A atualização continua sendo feita enviando as bases do SIM/SINASC ao Claude, que gera um novo `index.html` para subir ao GitHub — sem botão de atualização no navegador, por ser essa a rotina já combinada para este painel.
 - **Painel de Arboviroses publicado no GitHub Pages**, na pasta `painel-arboviroses/` (https://hallmeberg.github.io/portal-vigilancia-viii/painel-arboviroses/). O cartão do portal passou a apontar para esse endereço, que é agora o **link oficial** do painel. Detalhes e rotina de atualização em [painel-arboviroses/LEIAME.md](painel-arboviroses/LEIAME.md).
 - No GitHub, o botão **Atualizar base de dados** aparece só com `?atualizar` no fim do endereço e gera o `index.html` atualizado, que é enviado à pasta `painel-arboviroses/` pelo próprio GitHub ("Add file → Upload files").
 - O painel ganhou o link **← Portal da Vigilância**, que só aparece quando aberto pelo GitHub Pages.
