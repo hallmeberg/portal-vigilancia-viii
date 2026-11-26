@@ -81,12 +81,16 @@ Depois de editar, envie o `index.html` para a branch `main` do repositório. O G
 
 - [ ] Confirmar datas da reunião do GT Regional de Arboviroses (25/11) e da CIR (09/12)
 - [ ] Trocar o link da Portaria SES-PE nº 660/2022 pelo link oficial do Diário Oficial de PE
-- [ ] Liberar os painéis de Sazonalidade dos Vírus Respiratórios e de Violência (VIVA) quando estiverem prontos
+- [ ] Liberar o painel de Sazonalidade dos Vírus Respiratórios quando estiver pronto
+- [x] Painel de Violência (VIVA) liberado em 26/11/2026
 - [ ] Manter público o link do painel no Claude (ATT)
 
 ## 6. Histórico de alterações
 
 ### 26/11/2026
+- **Painel de Violência Interpessoal e Autoprovocada publicado no GitHub Pages**, na pasta `painel-violencias/` (https://hallmeberg.github.io/portal-vigilancia-viii/painel-violencias/). O cartão "Violência Interpessoal e Autoprovocada" deixou de estar "Em construção" e passou a apontar para esse endereço. Detalhes em [painel-violencias/LEIAME.md](painel-violencias/LEIAME.md).
+- O painel ganhou a identidade visual do Governo de Pernambuco (logos da SES-PE e da VIII GERES, faixa arco-íris, azul-marinho), o **mapa da VIII GERES** (taxa por 100 mil habitantes ou número de casos, clicável) e a aba **Alerta de reincidência**, que aponta por município de residência as pessoas com mais de uma tentativa de suicídio notificada.
+- A lista com o **número da notificação no Sinan** de cada pessoa em alerta **não foi publicada** no site, que é aberto: por ser dado sensível de saúde (LGPD, art. 11), ela fica em uma planilha restrita, enviada pela VIII GERES às coordenações municipais. O painel mostra só as contagens.
 - **Painel de Situação de Saúde publicado no GitHub Pages**, na pasta `painel-situacao-saude/` (https://hallmeberg.github.io/portal-vigilancia-viii/painel-situacao-saude/). O cartão do portal passou a apontar para esse endereço, que é agora o **link oficial** do painel. Detalhes e rotina de atualização em [painel-situacao-saude/LEIAME.md](painel-situacao-saude/LEIAME.md).
 - Diferente do Painel de Arboviroses, este painel é do tipo "Dashboard" do Claude (dados em banco próprio da plataforma, não um arquivo exportável), então a cópia estática foi **reconstruída à mão**: mesmo HTML, mesmos cálculos e mesmos gráficos, porém com CSS e JavaScript próprios (sem os tokens de estilo e a API de dados exclusivos da plataforma do Claude) e com os dados agregados do dia embutidos no arquivo. A atualização continua sendo feita enviando as bases do SIM/SINASC ao Claude, que gera um novo `index.html` para subir ao GitHub — sem botão de atualização no navegador, por ser essa a rotina já combinada para este painel.
 - **Painel de Arboviroses publicado no GitHub Pages**, na pasta `painel-arboviroses/` (https://hallmeberg.github.io/portal-vigilancia-viii/painel-arboviroses/). O cartão do portal passou a apontar para esse endereço, que é agora o **link oficial** do painel. Detalhes e rotina de atualização em [painel-arboviroses/LEIAME.md](painel-arboviroses/LEIAME.md).
